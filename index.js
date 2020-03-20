@@ -1,5 +1,11 @@
-import { NativeModules } from 'react-native';
+import { NativeModules } from "react-native";
 
-const { CreateHmac } = NativeModules;
+const { CreateHmac: CreateHmacModules } = NativeModules;
 
-export default CreateHmac;
+export const createHmacSHA1 = async (secretKey, data = {}) => {
+  return CreateHmacModules.createHmacSHA1(secretKey, data);
+};
+
+export default {
+  createHmacSHA1
+};
